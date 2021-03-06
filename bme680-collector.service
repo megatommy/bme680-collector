@@ -1,0 +1,15 @@
+# Unit/Service file to put on the Collector device (ex. Raspbery Pi)
+# Depending on distro, put in right folder. On Debian based systems: /usr/lib/systemd/system
+# After moving it there, run 'systemctl daemon-reload' to load this service file
+
+[Unit]
+Description=BME680 Collector
+
+[Service]
+ExecStart=/path/to/python/script.py
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
