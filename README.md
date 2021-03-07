@@ -34,20 +34,23 @@ Hardware:
 
 Software (on the Pi):
  - MySQL
- - Python package `bme680-python` provided by Pimoroni. **Test the examples provided**
+ - Python packages
+   - [bme680-python](https://github.com/pimoroni/bme680-python) provided by Pimoroni. **Test the examples provided. If they work my scripts will probably aswell**
+   - [mysql-connector-python](https://pypi.org/project/mysql-connector-python/)
 
 When the necessary is installed, proceed:
 
 
 ```bash
 # clone the reporitory and enter the directory:
-git clone XXX
+git clone https://github.com/megatommy/bme680-collector
 cd bme680-collector
 
 # edit the python script with the credentials of MySQL:
 nano bme680-collector-database.py
 
-# execute the SQL provided in the `bme680.sql` file
+# execute the SQL provided in the `bme680.sql` file (UNTESTED but something along these lines)
+mysql --user="username" -p < "bme680.sql"
 
 # open the bme680-collector.service file and edit the line starting with "ExecStart="
 # to match the path of the python file you want to use:
